@@ -5,6 +5,10 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { ChatMessageList } from "./chatMessage/ChatMessageList";
+import { ChatMessageCreate } from "./chatMessage/ChatMessageCreate";
+import { ChatMessageEdit } from "./chatMessage/ChatMessageEdit";
+import { ChatMessageShow } from "./chatMessage/ChatMessageShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -30,7 +34,15 @@ const App = (): React.ReactElement => {
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}
-      ></Admin>
+      >
+        <Resource
+          name="ChatMessage"
+          list={ChatMessageList}
+          edit={ChatMessageEdit}
+          create={ChatMessageCreate}
+          show={ChatMessageShow}
+        />
+      </Admin>
     </div>
   );
 };
